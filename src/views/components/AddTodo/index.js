@@ -3,7 +3,7 @@ import { useState } from "react";
 const initialState = { search: '' }
 
 function AddTodo(params) {
-    const [search, setSearch] = useState(initialState)
+    const [, setSearch] = useState(initialState)
 
     function handleSubmit(event) {
         event.preventDefault()

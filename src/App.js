@@ -4,13 +4,12 @@ import AddTodo from './views/components/AddTodo';
 import TodoList from './views/components/TodoList';
 import Filter from './views/components/filter';
 
-import { Context_1_provider } from "./contexts/index.js"
-
+import { CONTEXT_1_PROVIDER } from "./contexts/index.js"
 function App() {
   return (
     <div className="App">
       <main>
-        <Context_1_provider>
+        <CONTEXT_1_PROVIDER>
           <div className="container">
             <Filter></Filter>
             <hr />
@@ -18,7 +17,7 @@ function App() {
             <hr />
             <AddTodo></AddTodo>
           </div>
-        </Context_1_provider>
+        </CONTEXT_1_PROVIDER>
       </main>
     </div>
   );
