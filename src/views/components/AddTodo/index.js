@@ -1,7 +1,9 @@
 import { useState } from "react";
 
+const initialState = { search: '' }
+
 function AddTodo(params) {
-    const [, setSearch] = useState('')
+    const [search, setSearch] = useState(initialState)
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -32,3 +34,4 @@ function AddTodo(params) {
 }
 
 export default AddTodo
+export { initialState }

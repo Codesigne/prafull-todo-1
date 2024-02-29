@@ -1,20 +1,26 @@
 import { useEffect } from "react"
 import { useState } from "react"
 
-
+const initialState = {
+    search: "",
+    includCompleted: true
+}
 
 
 function Filter(params) {
-    const state = {
-        search: "",
-        includCompleted: true
-    }
-    const [stateFilter, setStateFilter] = useState(state)
+    // const state = {
+    //     search: "",
+    //     includCompleted: true
+    // }
+    const [stateFilter, setStateFilter] = useState(initialState)
     function updateIncludeCompleted() {
         setStateFilter({ ...stateFilter, includCompleted: !stateFilter.includCompleted })
     }
     function updateSearch(e) {
         // console.log(e.target.value);
+        // console.log("initialState :", initialState);
+        // console.log("stateFilter :", stateFilter);
+
         setStateFilter({ ...stateFilter, search: e.target.value })
     }
 
@@ -39,3 +45,4 @@ function Filter(params) {
 }
 
 export default Filter
+export { initialState }

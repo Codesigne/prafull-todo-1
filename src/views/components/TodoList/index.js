@@ -1,22 +1,24 @@
 import TodoListItem from "../TodoListItem"
 
-const todo = [
-    {
-        id: 1,
-        text: 'asdadasdasda'
+const initialState = {
+    todo: [
+        {
+            id: 1,
+            text: 'asdadasdasda'
 
-    }, {
-        id: 2,
-        text: 'asdadaswsssdasda'
+        }, {
+            id: 2,
+            text: 'asdadaswsssdasda'
 
-    }, {
-        id: 3,
-        text: 'afghfhsdadasdasda'
+        }, {
+            id: 3,
+            text: 'afghfhsdadasdasda'
 
-    },
-]
+        },
+    ]
+}
 function TodoList(props) {
-    let list = todo.map((listItem) => {
+    let list = initialState.todo.map((listItem) => {
         return <TodoListItem key={listItem.id} {...listItem} />
     })
     return (
@@ -27,3 +29,4 @@ function TodoList(props) {
 }
 
 export default TodoList
+export { initialState }
