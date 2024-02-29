@@ -10,7 +10,7 @@ import { useContext_1 } from "../../../contexts"
 
 function Filter(params) {
     const { Actions, filterState, filterDispatch } = useContext_1();
-    console.log("Actions, filterState, filterDispatch :", Actions, filterState, filterDispatch);
+    // console.log("Actions, filterState, filterDispatch :", Actions, filterState, filterDispatch);
     // const state = {
     //     search: "",
     //     includCompleted: true
@@ -32,7 +32,7 @@ function Filter(params) {
 
         // setStateFilter({ ...stateFilter, search: e.target.value })
         filterDispatch({
-            type: Actions.INCLUDE_COMPLETED,
+            type: Actions.SEARCH,
             payload: e.target.value
         })
     }

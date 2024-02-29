@@ -6,7 +6,7 @@ function TodoList(props) {
 
     // const [stateTodoList, setStateTodoList] = useState(initialState)
     // const { Actions, todoListReducer, todoListStore } = useContext_1()
-    const { Actions, todoListState, todoListDispatch } = useContext_1()
+    const { Actions, todoListState, todoListDispatch, filterState } = useContext_1()
 
     // console.log("todoListState :", todoListState);
 
@@ -30,7 +30,25 @@ function TodoList(props) {
     }
 
     let list = todoListState.todo.map((listItem) => {
-        return <TodoListItem key={listItem.id} handleIsCompleted={handleIsCompleted} {...listItem} />
+        // return filterState.includCompleted ? 
+        //     <TodoListItem key={listItem.id} handleIsCompleted={handleIsCompleted} {...listItem} />
+        //     : ()=>
+        let searchTerm = filterState.search
+
+        console.log("listItem.text.toLowerCase() :", listItem.text.toLowerCase());
+        console.log("searchTerm :", searchTerm);
+        if (!!filterState.includCompleted) {
+            console.log("&& listItem.search.match(/d/):", listItem.text.toLowerCase());
+            if (listItem.text.toLowerCase().includes(searchTerm)) {
+                return <TodoListItem key={listItem.id} handleIsCompleted={handleIsCompleted} {...listItem} />
+            }
+        } else {
+            if (!listItem.isCompleted) {
+                if (listItem.text.toLowerCase().includes(searchTerm)) {
+                    return <TodoListItem key={listItem.id} handleIsCompleted={handleIsCompleted} {...listItem} />
+                }
+            }
+        }
     })
 
     return (
