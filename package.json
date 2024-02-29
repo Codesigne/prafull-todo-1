@@ -17,7 +17,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "firebase:login": "firebase login",
+    "firebase:init": "firebase init",
+    "firebase:emulators:init": "firebase init emulators",
+    "firebase:emulators:start": "firebase emulators:start",
+    "firebase:deploy:only:hosting": "firebase deploy --only hosting"
   },
   "eslintConfig": {
     "extends": [
