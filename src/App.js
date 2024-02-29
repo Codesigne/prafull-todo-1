@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <main>
         <div className="container">
-          <TodoList></TodoList>
+          <TodoList> </TodoList>
         </div>
       </main>
     </div>
