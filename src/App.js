@@ -5,7 +5,6 @@ import TodoList from './views/components/TodoList';
 import Filter from './views/components/filter';
 
 import { CONTEXT_1_PROVIDER } from "./contexts/index.js"
-
 function App() {
   return (
     <div className="App">
