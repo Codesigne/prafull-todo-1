@@ -1,27 +1,40 @@
 import { useEffect } from "react"
 import { useState } from "react"
+import { useContext_1 } from "../../../contexts"
 
-const initialState = {
-    search: "",
-    includCompleted: true
-}
+// const initialState = {
+//     search: "",
+//     includCompleted: true
+// }
 
 
 function Filter(params) {
+    const { Actions, filterState, filterDispatch } = useContext_1();
+    console.log("Actions, filterState, filterDispatch :", Actions, filterState, filterDispatch);
     // const state = {
     //     search: "",
     //     includCompleted: true
     // }
-    const [stateFilter, setStateFilter] = useState(initialState)
-    function updateIncludeCompleted() {
-        setStateFilter({ ...stateFilter, includCompleted: !stateFilter.includCompleted })
+    // const [stateFilter, setStateFilter] = useState(initialState)
+    function updateIncludeCompleted(e) {
+        console.log("e :", e);
+        // setStateFilter({ ...stateFilter, includCompleted: !stateFilter.includCompleted })
+        filterDispatch({
+            type: Actions.INCLUDE_COMPLETED,
+            payload: e.target.checked
+        })
+
     }
     function updateSearch(e) {
-        // console.log(e.target.value);
-        // console.log("initialState :", initialState);
-        // console.log("stateFilter :", stateFilter);
+        // // console.log(e.target.value);
+        // // console.log("initialState :", initialState);
+        // // console.log("stateFilter :", stateFilter);
 
-        setStateFilter({ ...stateFilter, search: e.target.value })
+        // setStateFilter({ ...stateFilter, search: e.target.value })
+        filterDispatch({
+            type: Actions.INCLUDE_COMPLETED,
+            payload: e.target.value
+        })
     }
 
     return (
@@ -37,7 +50,7 @@ function Filter(params) {
                             onChange={e => updateSearch(e)}
                         />
                     </div>
-                    <input onChange={updateIncludeCompleted} type="checkbox" defaultChecked={stateFilter.includCompleted} /> Include Completed
+                    <input onChange={updateIncludeCompleted} type="checkbox" defaultChecked={filterState.includCompleted} /> Include Completed
                 </div>
             </div>
         </>
@@ -45,4 +58,4 @@ function Filter(params) {
 }
 
 export default Filter
-export { initialState }
+

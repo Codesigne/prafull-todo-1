@@ -3,7 +3,9 @@
 import todoListState from "../views/components/TodoList/state"
 import filterState from "../views/components/filter/state"
 const Actions = {
-    MARK_ITEM: "MARK:ITEM"
+    MARK_ITEM: "MARK:ITEM",
+    INCLUDE_COMPLETED: "INCLUDE:COMPLETED",
+    SEARCH: "SEARCH"
 }
 
 // const
@@ -17,8 +19,16 @@ const Actions = {
 
 function filterReducer(state, action) {
     switch (action.type) {
-        case "wetwetwetwetwetwetwetwetwetwewewet":
-            return [...state]
+        case Actions.INCLUDE_COMPLETED:
+            console.log("state :", state);
+            console.log("action :", action);
+            return { ...state, includCompleted: action.payload }
+            break;
+
+        case Actions.SEARCH:
+            console.log("state :", state);
+            console.log("action :", action);
+            return { ...state, search: action.payload }
             break;
 
         default:
