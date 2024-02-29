@@ -1,6 +1,6 @@
-import { useEffect } from "react"
-import { useState } from "react"
-import { useContext_1 } from "../../../contexts"
+// import { useEffect } from "react"
+// import { useState } from "react"
+import { USECONTEXT_1 } from "../../../contexts"
 
 // const initialState = {
 //     search: "",
@@ -9,7 +9,7 @@ import { useContext_1 } from "../../../contexts"
 
 
 function Filter(params) {
-    const { Actions, filterState, filterDispatch } = useContext_1();
+    const { Actions, filterState, filterDispatch } = USECONTEXT_1();
     // console.log("Actions, filterState, filterDispatch :", Actions, filterState, filterDispatch);
     // const state = {
     //     search: "",

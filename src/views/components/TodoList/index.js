@@ -1,12 +1,12 @@
-import { useState } from "react"
+// import { useState } from "react"
 import TodoListItem from "../TodoListItem"
-import { useContext_1 } from "../../../contexts"
+import { USECONTEXT_1 } from "../../../contexts"
 
 function TodoList(props) {
 
     // const [stateTodoList, setStateTodoList] = useState(initialState)
-    // const { Actions, todoListReducer, todoListStore } = useContext_1()
-    const { Actions, todoListState, todoListDispatch, filterState } = useContext_1()
+    // const { Actions, todoListReducer, todoListStore } = USECONTEXT_1()
+    const { Actions, todoListState, todoListDispatch, filterState } = USECONTEXT_1()
 
     // console.log("todoListState :", todoListState);
 
@@ -29,27 +29,58 @@ function TodoList(props) {
         })
     }
 
-    let list = todoListState.todo.map((listItem) => {
-        // return filterState.includCompleted ? 
-        //     <TodoListItem key={listItem.id} handleIsCompleted={handleIsCompleted} {...listItem} />
-        //     : ()=>
-        let searchTerm = filterState.search
+    // let list = 
 
-        console.log("listItem.text.toLowerCase() :", listItem.text.toLowerCase());
-        console.log("searchTerm :", searchTerm);
-        if (!!filterState.includCompleted) {
-            console.log("&& listItem.search.match(/d/):", listItem.text.toLowerCase());
-            if (listItem.text.toLowerCase().includes(searchTerm)) {
+    //     todoListState.todo.map((listItem) => {
+    //     // return filterState.includCompleted ? 
+    //     //     <TodoListItem key={listItem.id} handleIsCompleted={handleIsCompleted} {...listItem} />
+    //     //     : ()=>
+    //     let searchTerm = filterState.search
+
+    //     console.log("listItem.text.toLowerCase() :", listItem.text.toLowerCase());
+    //     console.log("searchTerm :", searchTerm);
+    //     if (!!filterState.includCompleted) {
+    //         console.log("&& listItem.search.match(/d/):", listItem.text.toLowerCase());
+    //         if (listItem.text.toLowerCase().includes(searchTerm)) {
+    //             return <TodoListItem key={listItem.id} handleIsCompleted={handleIsCompleted} {...listItem} />
+    //         }
+    //     } else {
+    //         if (!listItem.isCompleted) {
+    //             if (listItem.text.toLowerCase().includes(searchTerm)) {
+    //                 return <TodoListItem key={listItem.id} handleIsCompleted={handleIsCompleted} {...listItem} />
+    //             }
+    //         }
+    //     }
+
+    // })
+    // let searchTerm = filterState.search
+    let list =
+        todoListState.todo
+            .filter((listItem) => {
+                return (() => {
+                    if (!!filterState.includCompleted) {
+                        return listItem
+                    } else {
+                        if (!listItem.isCompleted) {
+                            return listItem
+                        }
+                    }
+                })()
+            })
+            .filter((listItem) => {
+                return (() => {
+                    if (listItem.text.toLowerCase().includes(filterState.search)) {
+                        return listItem
+                    } else {
+                        // if (!listItem.isCompleted) {
+                        //     return listItem
+                        // }
+                    }
+                })()
+            })
+            .map((listItem) => {
                 return <TodoListItem key={listItem.id} handleIsCompleted={handleIsCompleted} {...listItem} />
-            }
-        } else {
-            if (!listItem.isCompleted) {
-                if (listItem.text.toLowerCase().includes(searchTerm)) {
-                    return <TodoListItem key={listItem.id} handleIsCompleted={handleIsCompleted} {...listItem} />
-                }
-            }
-        }
-    })
+            })
 
     return (
         <ul className="list-group">

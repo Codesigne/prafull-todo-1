@@ -23,17 +23,17 @@ function filterReducer(state, action) {
             console.log("state :", state);
             console.log("action :", action);
             return { ...state, includCompleted: action.payload }
-            break;
+        // break;
 
         case Actions.SEARCH:
             console.log("state :", state);
             console.log("action :", action);
             return { ...state, search: action.payload }
-            break;
+        // break;
 
         default:
             throw Error(`Unknown action type ${action.type}`)
-            break;
+        // break;
     }
 }
 function todoListReducer(state, action) {
@@ -46,11 +46,11 @@ function todoListReducer(state, action) {
             console.log("updatedList :", updatedList);
             // return [...state, todo: [action.payload]]
             return updatedList
-            break;
+        // break;
 
         default:
             throw Error(`Unknown action type ${action.type}`)
-            break;
+        // break;
     }
 }
 
