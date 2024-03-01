@@ -2,6 +2,7 @@
 // const initialState = { search: '' }
 
 import { USECONTEXT_1 } from "../../../contexts"
+// import TodoAPI from "../../../services"
 
 
 function AddTodo(params) {
@@ -23,6 +24,8 @@ function AddTodo(params) {
             payload: state.addTodoState.taskDescription ?? 'Empty'
             // payload: todoListState
         })
+        // @todo this should be async operation
+        // TodoAPI.set(state.todoListState)
     }
     function handleAdd(event) {
         console.log(`event on ${Actions.SET_DESCRIPTION}:`, event);

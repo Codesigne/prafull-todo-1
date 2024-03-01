@@ -1,6 +1,8 @@
 // import { useState } from "react"
 import TodoListItem from "../TodoListItem"
 import { USECONTEXT_1 } from "../../../contexts"
+import { useEffect } from "react"
+import TodoAPI from "../../../services"
 
 function TodoList(props) {
 
@@ -10,7 +12,9 @@ function TodoList(props) {
     const { Actions, state, dispatch } = USECONTEXT_1()
 
     // console.log("state :", state);
-
+    useEffect(() => {
+        TodoAPI.set(state.todoListState)
+    }, [state.todoListState])
     function handleIsCompleted(event) {
         // // console.log(event);
         // console.log(event.target.checked);
