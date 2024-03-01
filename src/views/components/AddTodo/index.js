@@ -15,17 +15,19 @@ function AddTodo(params) {
     //     setSearch(event.target.value)
     // }
 
-    const { Actions, addTodoState, addTodoDispatch, todoListState } = USECONTEXT_1()
+    const { Actions, state, dispatch } = USECONTEXT_1()
     function handleSubmit(event) {
         event.preventDefault()
-        addTodoDispatch({
+        dispatch.todoListDispatch({
             type: Actions.ADD_TASK,
+            payload: state.addTodoState.taskDescription ?? 'Empty'
             // payload: todoListState
         })
     }
     function handleAdd(event) {
         console.log(`event on ${Actions.SET_DESCRIPTION}:`, event);
-        addTodoDispatch({
+        console.log(state);
+        dispatch.addTodoDispatch({
             type: Actions.SET_DESCRIPTION,
             payload: event.target.value
         })

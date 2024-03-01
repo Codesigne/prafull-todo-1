@@ -44,8 +44,8 @@ function Filter(params) {
                     <div className="input-group mb-3">
                         <input type="text"
                             className="form-control"
-                            placeholder="Recipient's username"
-                            aria-label="Recipient's username"
+                            placeholder="Search Task"
+                            aria-label="Search Task"
                             aria-describedby="button-addon2"
                             onChange={e => updateSearch(e)}
                         />

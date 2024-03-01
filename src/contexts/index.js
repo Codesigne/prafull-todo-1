@@ -52,6 +52,13 @@ function Context_1_provider({ children }) {
         addTodoDispatch,
         // Dispatch action to other reducers as needed
     };
+    // let appStore = combinedState
+
+    // const [appState, appDispatch] = useReducer(appReducer, appStore)
+
+    // console.log("appState, appDispatch :", appDispatch);
+
+
 
     return (
         <>
