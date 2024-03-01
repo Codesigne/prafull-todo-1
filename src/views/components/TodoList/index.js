@@ -6,14 +6,15 @@ function TodoList(props) {
 
     // const [stateTodoList, setStateTodoList] = useState(initialState)
     // const { Actions, todoListReducer, todoListStore } = USECONTEXT_1()
-    const { Actions, todoListState, todoListDispatch, filterState } = USECONTEXT_1()
+    // const { Actions, state, dispatch, state } = USECONTEXT_1()
+    const { Actions, state, dispatch } = USECONTEXT_1()
 
-    // console.log("todoListState :", todoListState);
+    // console.log("state :", state);
 
     function handleIsCompleted(event) {
         // // console.log(event);
         // console.log(event.target.checked);
-        const updatedList = [...todoListState.todo]
+        const updatedList = [...state.todo]
         // console.log("updatedList :", updatedList);
         const itemToUpdate = updatedList.find(item => {
             // console.log("item.id :", item.id);
@@ -22,8 +23,8 @@ function TodoList(props) {
         })
         // console.log("itemToUpdate :", itemToUpdate);
         itemToUpdate.isCompleted = !itemToUpdate.isCompleted
-        // todoListReducer({ ...todoListState, todo: updatedList })
-        todoListDispatch({
+        // todoListReducer({ ...state, todo: updatedList })
+        dispatch({
             type: Actions.MARK_ITEM,
             payload: updatedList
         })
@@ -31,15 +32,15 @@ function TodoList(props) {
 
     // let list = 
 
-    //     todoListState.todo.map((listItem) => {
-    //     // return filterState.includCompleted ? 
+    //     state.todo.map((listItem) => {
+    //     // return state.includCompleted ? 
     //     //     <TodoListItem key={listItem.id} handleIsCompleted={handleIsCompleted} {...listItem} />
     //     //     : ()=>
-    //     let searchTerm = filterState.search
+    //     let searchTerm = state.search
 
     //     console.log("listItem.text.toLowerCase() :", listItem.text.toLowerCase());
     //     console.log("searchTerm :", searchTerm);
-    //     if (!!filterState.includCompleted) {
+    //     if (!!state.includCompleted) {
     //         console.log("&& listItem.search.match(/d/):", listItem.text.toLowerCase());
     //         if (listItem.text.toLowerCase().includes(searchTerm)) {
     //             return <TodoListItem key={listItem.id} handleIsCompleted={handleIsCompleted} {...listItem} />
@@ -53,12 +54,12 @@ function TodoList(props) {
     //     }
 
     // })
-    // let searchTerm = filterState.search
+    // let searchTerm = state.search
     let list =
-        todoListState.todo
+        state.todoListState.todo
             .filter((listItem) => {
                 return (() => {
-                    if (!!filterState.includCompleted) {
+                    if (!!state.filterState.includCompleted) {
                         return listItem
                     } else {
                         if (!listItem.isCompleted) {
@@ -69,7 +70,7 @@ function TodoList(props) {
             })
             .filter((listItem) => {
                 return (() => {
-                    if (listItem.text.toLowerCase().includes(filterState.search)) {
+                    if (listItem.text.toLowerCase().includes(state.filterState.search)) {
                         return listItem
                     } else {
                         // if (!listItem.isCompleted) {

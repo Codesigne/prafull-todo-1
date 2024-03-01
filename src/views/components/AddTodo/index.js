@@ -1,16 +1,34 @@
-import { useState } from "react";
+// import { useState } from "react";
+// const initialState = { search: '' }
 
-const initialState = { search: '' }
+import { USECONTEXT_1 } from "../../../contexts"
+
 
 function AddTodo(params) {
-    const [, setSearch] = useState(initialState)
+    // const [, setSearch] = useState(initialState)
 
+    // function handleSubmit(event) {
+    //     event.preventDefault()
+    // }
+    // function handleAdd(event) {
+    //     // console.log(event.target.value);
+    //     setSearch(event.target.value)
+    // }
+
+    const { Actions, addTodoState, addTodoDispatch, todoListState } = USECONTEXT_1()
     function handleSubmit(event) {
         event.preventDefault()
+        addTodoDispatch({
+            type: Actions.ADD_TASK,
+            // payload: todoListState
+        })
     }
     function handleAdd(event) {
-        // console.log(event.target.value);
-        setSearch(event.target.value)
+        console.log(`event on ${Actions.SET_DESCRIPTION}:`, event);
+        addTodoDispatch({
+            type: Actions.SET_DESCRIPTION,
+            payload: event.target.value
+        })
     }
     return (
         <>
@@ -34,4 +52,4 @@ function AddTodo(params) {
 }
 
 export default AddTodo
-export { initialState }
+// export { initialState }

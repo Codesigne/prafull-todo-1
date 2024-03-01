@@ -11,6 +11,14 @@ function todoListReducer(state, action) {
             return updatedList
         // break;
 
+        // case Actions.ADD_TASK:
+        //     return [...state, {
+        //         id: 1,
+        //         text: action.payload,
+        //         isCompleted: false
+        //     }]
+        // // break;
+
         default:
             throw Error(`Unknown action type ${action.type}`)
         // break;
