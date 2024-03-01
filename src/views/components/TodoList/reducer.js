@@ -17,7 +17,7 @@ function todoListReducer(state, action) {
                 todo: [
                     ...state.todo,
                     {
-                        id: Math.max(...state.todo.map(item => item.id)) + 1,
+                        id: (state.todo.length > 0) ? Math.max(...state.todo.map(item => item.id)) + 1 : 0,
                         text: action.payload,
                         isCompleted: false
                     }

@@ -1,11 +1,13 @@
 import filterState from "../views/components/filter/state";
 import filterReducer from "../views/components/filter/reducer";
 // --------------------------------------------------------------
-import todoListState from "../views/components/TodoList/state";
+import initialTodoListState from "../views/components/TodoList/state";
 import todoListReducer from "../views/components/TodoList/reducer";
 // --------------------------------------------------------------
 import addTodoState from "../views/components/AddTodo/state";
 import addTodoReducer from "../views/components/AddTodo/reducer";
+// --------------------------------------------------------------
+import TodoAPI from "../services";
 
 const Actions = {
     MARK_ITEM: "MARK:ITEM",
@@ -17,7 +19,7 @@ const Actions = {
 
 /**
  * ==============================================================
- * Master state can be added here
+ * Master state can be added here and modificaton
  * --------------------------------------------------------------
  *  // const
     //     {
@@ -30,6 +32,18 @@ const Actions = {
  * ##############################################################
  */
 
+let localTodo = TodoAPI.get() || []
+
+console.log("localTodo :", localTodo);
+const
+    {
+        todoListState, // to export
+        // component2State // to export
+    } = {
+        // todoListState: { todo: [...initialTodoListState.todo, ...localTodo] },
+        todoListState: { todo: [...localTodo] },
+        // component2State: { [{}, {}]}
+    }
 /**
  * ==============================================================
  * Master Reducers can be added here
