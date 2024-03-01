@@ -14,7 +14,7 @@ function TodoList(props) {
     function handleIsCompleted(event) {
         // // console.log(event);
         // console.log(event.target.checked);
-        const updatedList = [...state.todo]
+        const updatedList = [...state.todoListState.todo]
         // console.log("updatedList :", updatedList);
         const itemToUpdate = updatedList.find(item => {
             // console.log("item.id :", item.id);
@@ -24,7 +24,7 @@ function TodoList(props) {
         // console.log("itemToUpdate :", itemToUpdate);
         itemToUpdate.isCompleted = !itemToUpdate.isCompleted
         // todoListReducer({ ...state, todo: updatedList })
-        dispatch({
+        dispatch.todoListDispatch({
             type: Actions.MARK_ITEM,
             payload: updatedList
         })
