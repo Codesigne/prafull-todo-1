@@ -1,7 +1,7 @@
 import filterState from "../views/components/filter/state";
 import filterReducer from "../views/components/filter/reducer";
 // --------------------------------------------------------------
-import initialTodoListState from "../views/components/TodoList/state";
+// import initialTodoListState from "../views/components/TodoList/state";
 import todoListReducer from "../views/components/TodoList/reducer";
 // --------------------------------------------------------------
 import addTodoState from "../views/components/AddTodo/state";
@@ -34,7 +34,7 @@ const Actions = {
 
 let localTodo = TodoAPI.get() || []
 
-console.log("localTodo :", localTodo);
+// console.log("localTodo :", localTodo);
 const
     {
         todoListState, // to export

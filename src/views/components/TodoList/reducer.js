@@ -14,6 +14,7 @@ function todoListReducer(state, action) {
         case Actions.ADD_TASK:
             console.log("state :", state);
             return {
+
                 todo: [
                     ...state.todo,
                     {
