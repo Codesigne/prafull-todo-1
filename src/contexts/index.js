@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
+import useAutherization from "../services/authourization";
 import {
     Actions,
     // ---------------
@@ -10,6 +11,9 @@ import {
     // ---------------
     addTodoReducer,
     addTodoStore,
+    // ---------------
+    userReducer,
+    userStore,
     // ---------------
     // appReducer
 
@@ -24,7 +28,10 @@ function Context_1_provider({ children }) {
     const [filterState, filterDispatch] = useReducer(filterReducer, filterStore)
     const [todoListState, todoListDispatch] = useReducer(todoListReducer, todoListStore)
     const [addTodoState, addTodoDispatch] = useReducer(addTodoReducer, addTodoStore)
+    const [userState, userDispatch] = useReducer(userReducer, userStore)
 
+
+    // const haspermision = useAutherization()
     // Combined state object
     // const combinedState = {
     //     filterReducer: filterState,
@@ -35,6 +42,7 @@ function Context_1_provider({ children }) {
         filterState,
         todoListState,
         addTodoState,
+        userState,
     };
 
     // Combined dispatch function
@@ -50,6 +58,7 @@ function Context_1_provider({ children }) {
         filterDispatch,
         todoListDispatch,
         addTodoDispatch,
+        userDispatch,
         // Dispatch action to other reducers as needed
     };
     // let appStore = combinedState
@@ -59,6 +68,7 @@ function Context_1_provider({ children }) {
     // console.log("appState, appDispatch :", appDispatch);
 
 
+    const { hasPermission } = useAutherization('user')
 
     return (
         <>
@@ -76,7 +86,8 @@ function Context_1_provider({ children }) {
                 value={{
                     state: combinedState,
                     dispatch: combinedDispatch,
-                    Actions
+                    Actions,
+                    hasPermission
                 }}
             >
                 {children}
