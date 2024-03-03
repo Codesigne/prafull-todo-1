@@ -1,12 +1,5 @@
-// import { useEffect } from "react"
-// import { useState } from "react"
+
 import { USECONTEXT_1 } from "../../../contexts"
-
-// const initialState = {
-//     search: "",
-//     includCompleted: true
-// }
-
 
 function Filter(params) {
     const { Actions, state, dispatch } = USECONTEXT_1();
@@ -37,20 +30,32 @@ function Filter(params) {
         })
     }
 
+
+
+    // const { hasPermission } = useAutherization('user')
+
+
+
     return (
         <>
             <div className="card" >
                 <div className="card-body">
                     <div className="input-group mb-3">
-                        <input type="text"
+                        {<input type="text"
                             className="form-control"
                             placeholder="Search Task"
                             aria-label="Search Task"
                             aria-describedby="button-addon2"
                             onChange={e => updateSearch(e)}
-                        />
+                        />}
                     </div>
-                    <input onChange={updateIncludeCompleted} type="checkbox" defaultChecked={state.filterState.includCompleted} /> Include Completed
+                    {
+                        (
+                            <>
+                                <input onChange={updateIncludeCompleted} type="checkbox" defaultChecked={state.filterState.includCompleted} /> includes Completed
+                            </>
+                        )
+                    }
                 </div>
             </div>
         </>

@@ -1,12 +1,16 @@
 import filterState from "../views/components/filter/state";
 import filterReducer from "../views/components/filter/reducer";
 // --------------------------------------------------------------
-// import initialTodoListState from "../views/components/TodoList/state";
-import todoListReducer from "../views/components/TodoList/reducer";
-// --------------------------------------------------------------
 import addTodoState from "../views/components/AddTodo/state";
 import addTodoReducer from "../views/components/AddTodo/reducer";
 // --------------------------------------------------------------
+// import initialTodoListState from "../views/components/TodoList/state";
+import todoListReducer from "../views/components/TodoList/reducer";
+// --------------------------------------------------------------
+import userState from "../services/user/user.state.js";
+import userReducer from "../services/user/user.reducer.js";
+// --------------------------------------------------------------
+
 import TodoAPI from "../services";
 
 const Actions = {
@@ -15,6 +19,9 @@ const Actions = {
     SEARCH: "SEARCH",
     SET_DESCRIPTION: "SET_DESCRIPTION",
     ADD_TASK: "ADD_TASK",
+    LOGIN: "LOGIN",
+    LOGOUT: "LOGOUT",
+    SET_USER_LOGIN: "SET_USER_LOGIN"
 }
 
 /**
@@ -39,10 +46,15 @@ const
     {
         todoListState, // to export
         // component2State // to export
+        // user,
     } = {
         // todoListState: { todo: [...initialTodoListState.todo, ...localTodo] },
         todoListState: { todo: [...localTodo] },
         // component2State: { [{}, {}]}
+        // user:{
+        //     name:'',
+        //     email:'',
+        // }
     }
 /**
  * ==============================================================
@@ -98,6 +110,22 @@ function appReducer(state, action) {
             //     isCompleted: false
             // }]
             break;
+        case Actions.LOGIN:
+            console.log(`Triggered : ${Actions.LOGIN}`);
+            // return [...state, {
+            //     id: 1,
+            //     text: action.payload,
+            //     isCompleted: false
+            // }]
+            break;
+        case Actions.LOGOUT:
+            console.log(`Triggered : ${Actions.LOGOUT}`);
+            // return [...state, {
+            //     id: 1,
+            //     text: action.payload,
+            //     isCompleted: false
+            // }]
+            break;
 
         default:
             throw Error(`Unknown action type ${action.type}`)
@@ -114,6 +142,8 @@ export {
     todoListReducer, todoListState as todoListStore,
     // -------
     addTodoReducer, addTodoState as addTodoStore,
+    // -------
+    userReducer, userState as userStore,
     // -------
     appReducer,
     // -------
