@@ -24,6 +24,7 @@ import Navbar from './views/page/Navbar';
 import Home from './views/page/Home';
 import NoPage from './views/page/NoPage';
 import Todo from './views/page/Todo';
+import ProtectedRouts from './views/enhancers/ProtectedRouts';
 
 function App() {
   // const auth = getAuth();
@@ -32,12 +33,15 @@ function App() {
     <div className="App">
       <main>
         <CONTEXT_1_PROVIDER>
+
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Navbar />}>
                 <Route index element={<Home />} />
                 <Route path="Login" element={<LoginPage />} />
-                <Route path="Todo" element={<Todo />} />
+                {/* {<Route path="Todo" element={<Todo />} />} */}
+                {<Route path="Todo" element={<ProtectedRouts permission={'toPageHome'} > <Todo /> </ProtectedRouts>} />}
+
                 {/* <Route path="contact" element={<Contact />} /> */}
                 <Route path="*" element={<NoPage />} />
               </Route>

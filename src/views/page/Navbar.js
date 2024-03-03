@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 
 const Navbar = () => {
-    const { Actions, state, dispatch } = USECONTEXT_1()
+    const { Actions, state, dispatch, hasPermission } = USECONTEXT_1()
 
     async function handleLogin(params) {
         signInWithPopup(auth, provider)
@@ -55,15 +55,19 @@ const Navbar = () => {
         <>
             <nav>
                 <ul>
-                    {/* <li>
+                    <li>
                         <Link to="/">Home</Link>
                     </li>
+
+                    {hasPermission('toPageHome') && <li>
+                        <Link to="/adasd">adasd</Link>
+                    </li>}
                     <li>
                         <Link to="/Login">Login</Link>
                     </li>
                     <li>
                         <Link to="/Todo">Todo</Link>
-                    </li> */}
+                    </li>
                     <li>
                         <button className='btn btn-primary' onClick={handleLogin} >Login with Gogle</button>
                     </li>

@@ -8,6 +8,8 @@ const Permissions = {
     toComplete: [Role.superAdmin, Role.admin, Role.user],
     toFilter: [Role.superAdmin, Role.admin],
     toSearch: [Role.superAdmin],
+    // ----
+    toPageHome: [Role.superAdmin, Role.admin, Role.user]
 }
 
 

@@ -45,7 +45,7 @@ function Filter(params) {
     // const { hasPermission } = useAutherization('user')
 
     useEffect(() => {
-        console.log("hasPermission :", hasPermission);
+        // console.log("hasPermission :", hasPermission);
         console.log("hasPermission('toAdd') :", hasPermission('toAdd'));
         console.log("hasPermission('toComplete') :", hasPermission('toComplete'));
         console.log("hasPermission('toFilter') :", hasPermission('toFilter'));
