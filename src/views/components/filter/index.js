@@ -44,19 +44,14 @@ function Filter(params) {
 
     // const { hasPermission } = useAutherization('user')
 
-    useEffect(() => {
-        // console.log("hasPermission :", hasPermission);
-        console.log("hasPermission('toAdd') :", hasPermission('toAdd'));
-        console.log("hasPermission('toComplete') :", hasPermission('toComplete'));
-        console.log("hasPermission('toFilter') :", hasPermission('toFilter'));
-    }, [state])
+
 
     return (
         <>
             <div className="card" >
                 <div className="card-body">
                     <div className="input-group mb-3">
-                        {hasPermission('toSearch') && <input type="text"
+                        {<input type="text"
                             className="form-control"
                             placeholder="Search Task"
                             aria-label="Search Task"
@@ -64,8 +59,7 @@ function Filter(params) {
                             onChange={e => updateSearch(e)}
                         />}
                     </div>
-                    {hasPermission('toFilter')
-                        &&
+                    {
                         (
                             <>
                                 <input onChange={updateIncludeCompleted} type="checkbox" defaultChecked={state.filterState.includCompleted} /> includes Completed

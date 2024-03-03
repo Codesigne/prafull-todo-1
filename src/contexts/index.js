@@ -68,7 +68,7 @@ function Context_1_provider({ children }) {
     // console.log("appState, appDispatch :", appDispatch);
 
 
-    const { hasPermission } = useAutherization('user')
+    // const { hasPermission } = useAutherization('user')
 
     return (
         <>
@@ -87,7 +87,7 @@ function Context_1_provider({ children }) {
                     state: combinedState,
                     dispatch: combinedDispatch,
                     Actions,
-                    hasPermission
+                    // hasPermission
                 }}
             >
                 {children}
