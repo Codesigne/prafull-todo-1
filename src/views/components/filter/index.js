@@ -1,18 +1,8 @@
-// import { useEffect } from "react"
-// import { useState } from "react"
-import { useEffect } from "react";
+
 import { USECONTEXT_1 } from "../../../contexts"
-// import useAutherization from "../../../services/authourization";
-
-
-// const initialState = {
-//     search: "",
-//     includCompleted: true
-// }
-
 
 function Filter(params) {
-    const { Actions, state, dispatch, hasPermission } = USECONTEXT_1();
+    const { Actions, state, dispatch } = USECONTEXT_1();
     // console.log("Actions, state, dispatch :", Actions, state, dispatch);
     // const state = {
     //     search: "",
